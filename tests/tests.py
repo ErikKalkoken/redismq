@@ -1,12 +1,12 @@
+"""
 import os
 import sys
 import inspect
 parentdir = os.path.dirname(os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe()))))
 sys.path.append(parentdir)
-
+"""
 import unittest
 from redis import Redis
-
 from redismq import RedisMQ
 
 class TestPQueue(unittest.TestCase):
@@ -24,8 +24,11 @@ class TestPQueue(unittest.TestCase):
             y = self.q.dequeue()
             if y is None:
                 break;
-        
 
+    def test_init_with_wrong_conn_type(self):
+        with self.assertRaises(TypeError):
+            RedisMQ("xxx", "yyy")    
+    
     def test_empty_queue_returns_none(self):
         self.assertIsNone(self.q.dequeue())
 
@@ -62,7 +65,7 @@ class TestPQueue(unittest.TestCase):
             if y is not None:
                 y_list.append(y)
             else:
-                break;
+                break
         
         self.assertListEqual(x_list, y_list)
 

@@ -1,1 +1,1 @@
-from .rqueue import RedisMQ
+from .redismq import RedisMQ
