@@ -14,3 +14,5 @@ q.enqueue('Hello, World!')
 message = q.dequeue()
 print(message)
 ```
+
+See also the examples folder for examples.
