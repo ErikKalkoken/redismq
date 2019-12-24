@@ -1,6 +1,5 @@
 [run]
 branch = True
-source = redismq
 
 [report]
 exclude_lines =
