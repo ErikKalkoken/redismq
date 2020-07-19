@@ -1,1 +1,1 @@
-from .redismq import RedisMQ
+from .redismq import RedisMQ  # noqa
